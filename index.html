@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lab Booking</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2em; }
+        form { max-width: 350px; margin: 2em 0; }
+        label { display: block; margin-top: 1em; }
+        input, select { width: 100%; padding: 0.5em; }
+        button { margin-top: 1em; padding: 0.5em 2em; }
+        .thanks { color: green; margin-top: 1em; }
+    </style>
+</head>
+<body>
+    <h1>Lab Booking Form</h1>
+    <form id="booking-form">
+        <label>Your Name:
+            <input type="text" name="name" required>
+        </label>
+        <label>Lab:
+            <select name="lab" required>
+                <option value="">Select...</option>
+                <option value="Physics Lab">Physics Lab</option>
+                <option value="Chemistry Lab">Chemistry Lab</option>
+                <option value="Computer Lab">Computer Lab</option>
+            </select>
+        </label>
+        <label>Date:
+            <input type="date" name="date" required>
+        </label>
+        <label>Time Slot:
+            <input type="time" name="time" required>
+        </label>
+        <button type="submit">Book Lab</button>
+        <div class="thanks" id="thanks" style="display:none;">Thank you! Your booking is noted (for demo only).</div>
+    </form>
+    <p><b>Note:</b> This is a demo page. For real bookings, you need a database or Google Forms integration.</p>
+    <script>
+        document.getElementById('booking-form').onsubmit = function(e) {
+            e.preventDefault();
+            document.getElementById('thanks').style.display = 'block';
+            this.reset();
+        };
+    </script>
+</body>
+</html>
